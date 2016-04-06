@@ -1,0 +1,25 @@
+@(message: String)
+
+@*
+ * Call the the `main` template with two arguments. The first
+ * argument is a `String` with the title of the page, the second
+ * argument is an `Html` object containing the body of the page.
+ *@
+@main("Welcome to Play") {
+
+    <h1>This is the index page</h1>
+
+    <div>
+        <a href="@routes.HomeController.index">Home Page</a>
+    </div>
+
+    <div>
+        @* access through target/scala-2.10/src_managed/main/web/controllers/routes.scala *@
+        <a href="@web.controllers.routes.WebController.hello">Web Controller Hello</a>
+    </div>
+
+    <div>
+        <a href="@{myroutes.AppRoutes.WebControllerRoutes.hello}">Access through AppRoutes</a>
+    </div>
+
+}
